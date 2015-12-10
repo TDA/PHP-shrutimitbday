@@ -46,7 +46,7 @@ while($row=$res->fetch_assoc())
         echo "</div>";
 
         echo "<div class='imageHolder'>";
-        echo "<img src='".$row['name']."jpg'";
+        echo "<img src='".$row['name'].".jpg'>";
         echo "</div>";
 
         echo "<div class='messageHeader'>";
