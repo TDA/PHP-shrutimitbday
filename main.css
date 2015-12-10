@@ -252,3 +252,24 @@ form div {
     display: inline-block;
     margin-right: 2em;
 }
+
+.imageContainer {
+    position: relative;
+}
+
+.message {
+    opacity: 0;
+    position: absolute;
+}
+
+.senderName {
+
+}
+
+.imageHolder {
+
+}
+
+.messageHeader {
+
+}
