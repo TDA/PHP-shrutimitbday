@@ -1,3 +1,6 @@
+<?php
+include "dbconn.php";
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -52,7 +55,26 @@ if (!isset($_REQUEST['submit'])) {
                 </form>
     <?php
 } else {
-    echo "Thank You ". $_REQUEST['name']."!";
+
+    $name = $_REQUEST['name'];
+    $message = $_REQUEST['message'];
+    $dbconn= new mysqli("$server","$uname","","$dbname") or die('Invalid Password');
+
+    $query = "Select * from messages where name='$name'";
+
+    $res=$dbconn->query($query);
+    if (count($res->fetch_all()) != 0) {
+        // we need to update
+        $query = "update messages set message = '$message'";
+    } else {
+        // we need to insert
+        $query = "insert into messages values('', '$name', '$message', 3)";
+    }
+
+    $res=$dbconn->query($query);
+
+    echo "Thank You ".$name."!";
+
 }
     ?>
         </div>
